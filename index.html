@@ -20,8 +20,8 @@
               <a href="https://instagram.com/oauth/authorize/?client_id=92c9cf0ecbff4353945c73b55258edc8&redirect_uri=http://mknoth.github.io/feedme-1/&response_type=token"><button class="btn btn-primary btn-lg">Login with <i class="fa fa-instagram"></i>  Instagram</button></a>
       </div>
       
-      <div class="row" id="instafeed" style="padding-top: 50px;">
-         <h1>User photos should load here</h1>
+      <div class="row text-center" id="instafeed" style="padding-top: 50px;">
+         <h1>Here are photos from your stream.</h1>
         
       </div>
   
@@ -47,7 +47,10 @@
                   console.log(data[i]);
                   var image = data[i].images.standard_resolution.url;
                   console.log(image);
-                  imageHolder.append('<img src="' + image + '"/>');
+                  var htmlString =  '<br>' +
+                                   '<h1>' + data[i].user.username + '</h1>' +  
+                                    '<img src="' + image + '" class="img-thumbnail" />';
+                  imageHolder.append(htmlString);
                   imageHolder.append(data[i]);
                 }
                 
