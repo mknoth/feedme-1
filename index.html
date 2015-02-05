@@ -17,8 +17,8 @@
     <div class="container-fluid">
       <div class="jumbotron">
           <h1>This site is going to make me a millionaire!</h1>
-              <a href="https://instagram.com/oauth/authorize/?client_id=92c9cf0ecbff4353945c73b55258edc8&redirect_uri=http://mknoth.github.io/feedme-1/&response_type=token"><button class="btn btn-primary btn-lg">Login with <i class="fa fa-instagram"></i>  Instagram</button></a>
-              <a href="https://instagram.com/accounts/logout/"> Logout </a>
+              <a id="login" href="https://instagram.com/oauth/authorize/?client_id=92c9cf0ecbff4353945c73b55258edc8&redirect_uri=http://mknoth.github.io/feedme-1/&response_type=token"><button class="btn btn-primary btn-lg">Login with <i class="fa fa-instagram"></i>  Instagram</button></a>
+              <a id="logout" style="display:none" href="https://instagram.com/accounts/logout/" class="btn btn-primary btn-lg"> Logout </a>
       </div>
       
       <div class="row text-center" id="instafeed" style="padding-top: 50px;">
@@ -75,7 +75,16 @@
                   });
               }
               
-              getData();
+              if (myToken != null){
+                $('#login').hide();
+                $('#logout').show();
+                getData();
+              }
+              else {
+                $('#login').show();
+                $('#logout').hide();
+              }
+              
          });
       </script>
 </body>
