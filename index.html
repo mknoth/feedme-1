@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="jumbotron">
           <h1>This site is going to make me a millionaire!</h1>
               <a href="https://instagram.com/oauth/authorize/?client_id=92c9cf0ecbff4353945c73b55258edc8&redirect_uri=http://mknoth.github.io/feedme-1/&response_type=token"><button class="btn btn-primary btn-lg">Login with <i class="fa fa-instagram"></i>  Instagram</button></a>
@@ -40,10 +40,14 @@
               myToken = myToken[1];
               console.log(myToken);
               
-              function createHtml () {
+              function createHtml (data) {
                 console.log("createHtml function fired");
+                data = data.data; 
+                for (var i = 0; i < data.length; i++) {
+                  console.log(data[i]);
+                }
+                
               }
-              
               
               function getData () {
                   $.ajax({
